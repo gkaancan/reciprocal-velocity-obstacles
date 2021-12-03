@@ -1,0 +1,59 @@
+<launch>
+  <!-- No namespace here as we will share this description. 
+       Access with slash at the beginning -->
+
+  <param name="robot_description"
+    command="$(find xacro)/xacro $(find rvo)/urdf/disk.xacro " /> 
+
+
+  <!-- BEGIN ROBOT 1-->
+  <group ns="robot1">
+
+    <param name="tf_prefix" value="robot1_tf" />
+    <include file="$(find rvo)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 0 -y 0 -z 0 -Y 0.81" />
+      <arg name="robot_name"  value="Robot1" />
+      
+
+    </include>
+ 
+  </group>
+
+  <!-- BEGIN ROBOT 2-->
+  <group ns="robot2">
+
+    <param name="tf_prefix" value="robot2_tf" />
+    <include file="$(find rvo)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 5 -y 5 -z 0 -Y -2.305246" />
+      <arg name="robot_name"  value="Robot2" />
+     
+    </include>
+  </group>
+<!-- BEGIN ROBOT 3-->
+ <group ns="robot3">
+
+    <param name="tf_prefix" value="robot3_tf" />
+    <include file="$(find rvo)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 0 -y 5 -z 0 -Y -0.801823" />
+      <arg name="robot_name"  value="Robot3" />
+      
+    </include>
+  </group>
+
+<!-- BEGIN ROBOT 4-->
+ <group ns="robot4">
+
+    <param name="tf_prefix" value="robot4_tf" />
+    <include file="$(find rvo)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 5 -y 0 -z 0 -Y 2.364802" />
+      <arg name="robot_name"  value="Robot4" />
+     
+    </include>
+  </group>
+
+
+ 
+ 
+
+
+</launch>
